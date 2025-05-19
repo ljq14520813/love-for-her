@@ -1224,7 +1224,7 @@ body,button {
 .envelope-component #envelope2.envelope-container.envelope-popup {
     position: fixed;          /* 固定定位居中 */
     /* top: 130%; */
-    top: 116%;
+    top: 112%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;               /* 最大宽度（四周留边距） */
@@ -1318,7 +1318,7 @@ body,button {
 	margin: 10px 0;
 	/* font-size: 1.8em; */
 	font-size: 1.4rem;
-	line-height: 1.5;
+	line-height: 1.2;
 	text-shadow: 0 2px 3px rgba(0,0,0,0.1);
 	word-wrap: break-word;
 	white-space: normal;
