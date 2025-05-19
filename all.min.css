@@ -1224,7 +1224,7 @@ body,button {
 .envelope-component #envelope2.envelope-container.envelope-popup {
     position: fixed;          /* 固定定位居中 */
     /* top: 130%; */
-    top: 112%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;               /* 最大宽度（四周留边距） */
@@ -1316,12 +1316,14 @@ body,button {
 
 .envelope-component .envelope-message p {
 	margin: 10px 0;
-	/* font-size: 1.8em; */
-	font-size: 1.4rem;
-	line-height: 1.2;
+	font-size: 1.8em;
 	text-shadow: 0 2px 3px rgba(0,0,0,0.1);
 	word-wrap: break-word;
 	white-space: normal;
+}
+.envelope-component #envelope2 .envelope-message p {
+	font-size: 1.5rem;
+	line-height: 1.2;
 }
 
 @keyframes envelopeFloat {
@@ -1564,7 +1566,8 @@ body,button {
 }
 .letter-bold {
 	font-weight: bold;
-	margin-left: 250px;
+	/* margin-left: 250px; */
+	margin-left: 18rem;
 }
 .text .real-angry {
 	width: 200px;
