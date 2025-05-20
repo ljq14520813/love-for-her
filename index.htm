@@ -375,6 +375,11 @@
 
 		// 监听键盘事件
 		document.addEventListener('keydown', function(event) {
+			const musicPlayer = document.querySelector('.mPower');
+			// 检查是否处于禁止状态（.disabled 类存在）
+			if (musicPlayer.classList.contains('disabled')) {
+				return; // 禁止状态下直接返回，不执行播放逻辑
+			}
 			tryPlayAudio();
 		});
 
