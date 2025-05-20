@@ -1176,6 +1176,13 @@ body,button {
 	--env-heart: #ff85a2;
 	--env-sparkle: #fff;
 	--env-wax: #c04040;
+
+	pointer-events: none;	/* 让信封组件整体不拦截鼠标事件（穿透到下层元素） */
+}
+
+/* 恢复信封本身的可点击性（仅允许点击信封触发打开） */
+.envelope-component #envelope {
+    pointer-events: auto;
 }
 
 @font-face {
@@ -1187,35 +1194,33 @@ body,button {
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* body {
-	background-color: var(--env-bg);
-	margin: 0;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-} */
-
-/* 让信封组件整体不拦截鼠标事件（穿透到下层元素） */
-.envelope-component {
-    pointer-events: none;
+@keyframes envelopeFloat {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-10px); }
 }
 
-/* 恢复信封本身的可点击性（仅允许点击信封触发打开） */
-.envelope-component #envelope {
-    pointer-events: auto;
+.envelope-component .envelope-wrapper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	/* height: 380px; */
+	/* margin-top: 50px; */
+	animation: envelopeFloat 3s ease-in-out infinite;
+	padding: 3.5rem;
+	/* font-size: 1.75rem;
+	padding: 2em; */
 }
 
 .envelope-component .envelope-container {
 	position: relative;
-	width: 280px;
-	height: 180px;
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
+	width: 12.5rem;
+	height: 8rem;
+	border-bottom-left-radius: .26rem;
+	border-bottom-right-radius: .26rem;
 	/* margin: 0 auto; */
 	top: 24rem; /* 150px; */
 	background-color: var(--env-flap);
-	box-shadow: 0 4px 20px rgba(0,0,0,.1);
+	box-shadow: 0 .18px .89px rgba(0,0,0,.1);
 	cursor: pointer;
 	/* transition: transform 0.4s ease, width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease; */
 	transition: all 1s ease-in-out;
@@ -1224,7 +1229,7 @@ body,button {
 .envelope-component #envelope2.envelope-container.envelope-popup {
     position: fixed;          /* 固定定位居中 */
     /* top: 130%; */
-    top: 120%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;               /* 最大宽度（四周留边距） */
@@ -1238,7 +1243,7 @@ body,button {
 /* 第二个信封初始隐藏（顶部外） */
 .envelope-container#envelope2 {
     opacity: 0;
-    transform: translateY(-100%);
+    /* transform: translateY(-100%); */
     transition: all 1.2s ease-out; /* 入场动画时长和缓动 */
 }
 
@@ -1252,6 +1257,7 @@ body,button {
     overflow-y: auto;  /* 内容超出时显示垂直滚动条 */
     padding: 1.5rem;   /* 增加内边距提升可读性 */
 	pointer-events: auto; /* 确保信封层能捕获事件 */
+	user-select: none; /* 禁止用户选择文字 */
 }
 
 /* 隐藏滚动条（仅 Webkit 内核浏览器有效，如 Chrome、Safari） */
@@ -1342,20 +1348,6 @@ body,button {
 .envelope-component #envelope2 .envelope-message p {
 	font-size: 1.5rem;
 	line-height: 1.2;
-}
-
-@keyframes envelopeFloat {
-	0%, 100% { transform: translateY(0); }
-	50% { transform: translateY(-10px); }
-}
-
-.envelope-component .envelope-wrapper {
-	height: 380px;
-	/* margin-top: 50px; */
-	animation: envelopeFloat 3s ease-in-out infinite;
-	padding: 3.5rem;
-	/* font-size: 1.75rem;
-	padding: 2em; */
 }
 
 .envelope-component .envelope-open .envelope-flap {
