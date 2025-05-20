@@ -1248,7 +1248,7 @@ body,button {
 }
 
 .envelope-component #envelope2 .envelope-letter .envelope-message{
-    max-height: 70vh;  /* 最大高度为视口高度的70%，兼容不同屏幕 */
+    max-height: 80vh;  /* 最大高度为视口高度的70%，兼容不同屏幕 */
     overflow-y: auto;  /* 内容超出时显示垂直滚动条 */
     padding: 1.5rem;   /* 增加内边距提升可读性 */
 	pointer-events: auto; /* 确保信封层能捕获事件 */
